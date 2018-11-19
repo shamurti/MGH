@@ -1,0 +1,52 @@
+
+interface Loopback0
+ ip address 1.1.67.2 255.255.255.255
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip flow ingress
+ duplex auto
+ speed auto
+ no mop enabled
+!
+interface GigabitEthernet0/1
+ no ip redirects
+ no ip proxy-arp
+ ip flow ingress
+ ip flow egress
+ load-interval 30
+ shutdown
+ duplex full
+ speed 100
+ no cdp enable
+ no mop enabled
+!
+interface GigabitEthernet0/2
+ no ip address
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip flow ingress
+ shutdown
+ duplex auto
+ speed auto
+ no mop enabled
+!
+interface Changed0/0/0
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip flow ingress
+ encapsulation ppp
+ shutdown
+!
+interface GigabitEthernet0/2/0
+ ip flow ingress
+ media-type sfp
+!
